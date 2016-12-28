@@ -17,5 +17,6 @@ defmodule Accumulate do
 
   @spec accumulate(list, (any -> any)) :: list
   def accumulate(list, fun) do
+    List.foldr(list, [], fn x, modif -> [ fun.(x) | modif] end)
   end
 end
